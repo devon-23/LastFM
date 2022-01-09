@@ -3,11 +3,10 @@
     <title>LastFM</title>
     <script src='index.php'></script>
     <body>
-
+    
       
         <?php
         require 'lastfm.php';
-        require 'config.php';
         $lastfm = new LastFM("092d316884d8385f35ad8b84f5f42ef8");
         $tracks = $lastfm->getRecentTracks('devonbarks');
         $friends = $lastfm->getFriends('devonbarks');
