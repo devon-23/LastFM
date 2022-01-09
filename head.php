@@ -9,7 +9,7 @@
         require 'lastfm.php';
         $lastfm = new LastFM("092d316884d8385f35ad8b84f5f42ef8");
         $tracks = $lastfm->getRecentTracks('devonbarks');
-        $friends = $lastfm->getFriends('devonbarks');
+        $topTracks = $lastfm->getTopTracks('devonbarks');
         //print_r($tracks);
         ?>
 
