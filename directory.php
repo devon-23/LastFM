@@ -5,8 +5,9 @@
     <body>
     <h1>Devon's LastFM Statistics!</h1>
     <ul>
-        <li><a href="/ETC/Coding/LastFM/recent.php">Recently Played</li>
-        <li><a href="/ETC/Coding/LastFM/topTracks.php">Top played Tracks</li>
+        <li><a href="/recent.php">Recently Played</li>
+        <li><a href="/topTracks.php">Top played Tracks</li>
+        <li><a href="/collage.php">Top played Albums</li>
     </ul>
     </body>
 </html>

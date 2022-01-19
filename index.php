@@ -10,6 +10,7 @@
         $lastfm = new LastFM("092d316884d8385f35ad8b84f5f42ef8");
         $tracks = $lastfm->getRecentTracks('devonbarks');
         $top = $lastfm->getTopTracks('devonbarks');
+        $topAlbums = $lastfm->getTopAlbums('devonbarks');
         //print_r($tracks);
         ?>
 

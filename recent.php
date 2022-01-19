@@ -1,5 +1,8 @@
 <?php include_once('head.php'); ?>
-        <h1>Recently played songs</h1>
+
+<!-- Prints the tracks that are the most recent played -->
+
+<h1>Recently played songs</h1>
         <ol class="playlist">
             <?php foreach($tracks->track as $k=>$v): ?>
                 <li>
