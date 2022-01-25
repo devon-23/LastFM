@@ -1,7 +1,7 @@
 <?php include_once('head.php'); ?>
 
-    <title>LastFM</title>
-    <script src='index.php'></script>
+<title>LastFM</title>
+<script src='index.php'></script>
     <body>
         <h1>Recently played songs</h1>
         <ol class="playlist">
