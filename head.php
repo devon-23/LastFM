@@ -10,7 +10,8 @@
         $tracks = $lastfm->getRecentTracks('devonbarks');
         $topTracks = $lastfm->getTopTracks('devonbarks');
         $topAlbums = $lastfm->getTopAlbums('devonbarks');
-        //print_r($topAlbums);
+        $topFriends = $lastfm->getFriends('devonbarks');
+        //print_r($topFriends);
         ?>
     </body>
 </html>
