@@ -23,7 +23,7 @@
                 <span class="name"><?php echo $v->name; ?></span>
                 <span>   by    </span>
                 <span class="artist"><?php echo $v->artist; ?></span>
-                <?php } ?>
+                <?php } else { echo "Devon is not listening to anything right now"; }  ?>
         <?php 
         $i++;
         if($i == 1) break;
