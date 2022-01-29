@@ -55,7 +55,7 @@ class LastFM {
     }
 
     function getArtists($user) {
-        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=library.getartists&api_key=$this->apiKey&user=$user&limit=50");
+        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=library.getartists&api_key=$this->apiKey&user=$user&limit=1500");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HEADER, 0);
         curl_setopt($curl, CURLOPT_TIMEOUT, 3);

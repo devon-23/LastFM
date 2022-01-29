@@ -26,8 +26,9 @@
                 <span class="artist"><?php echo $v->artist; ?></span>
                 <?php } else { echo "Devon is not listening to anything right now"; }  ?>
         <?php 
-        $i++;
-        if($i == 1) break;
-        endforeach; ?>
+            $i++;
+            if($i == 1) break;
+            endforeach; 
+        ?>
     </body>
 </html>
