@@ -11,7 +11,9 @@
         $topTracks = $lastfm->getTopTracks('devonbarks');
         $topAlbums = $lastfm->getTopAlbums('devonbarks');
         $topFriends = $lastfm->getFriends('devonbarks');
-        //print_r($topFriends);
+        $allArtists = $lastfm->getArtists('devonbarks');
+        
+        //print_r($allArtists);
         ?>
     </body>
 </html>

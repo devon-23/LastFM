@@ -15,6 +15,7 @@
             <li><a href="/topTracks.php">Top played Tracks</a></li>
             <li><a href="/collage.php">Top played Albums</li>
             <li><a href="/friends.php">Friends</a></li>
+            <li><a href="/mostUnique.php">Unique Artists</a></li>
         </ul>
         <h3>Now playing:</h3>
         <?php $i = 0;
