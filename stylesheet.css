@@ -1,0 +1,26 @@
+.details-button {
+    background: linear-gradient(to bottom, #FFFFFF 0, #FAB149 2%, #F89406 100%) repeat scroll 0 0 transparent;
+    border: 1px solid #FAB149;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px #999999;
+    -ms-box-shadow: 0 1px 2px #999999;
+    box-shadow: 0 1px 2px #999999;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    -ms-text-shadow: 0 -1px #099FDF;
+    text-shadow: 0 -1px #099FDF;
+    margin: 4px;
+    width: 85px;
+    vertical-align: central;
+    align-items: center;
+    text-decoration: none;
+    font: menu;
+    display: inline-block;
+    
+    text-align: center;
+    padding: 6px 0;
+}

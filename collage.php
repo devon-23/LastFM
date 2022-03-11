@@ -14,7 +14,9 @@
         $i = 0;
         if ($_GET["name"] > 1) {
             foreach($topAlbums->album as $k=>$v): ?>
-                <img src="<?php echo $v->image[2]; ?>" alt="">  
+                <a href="albumPage.php?id=<?= $v->name; ?>">
+                    <img src="<?php echo $v->image[2]; ?>" alt="">
+                </a>
                 <?php $i++;
                 if($i == $_GET["name"]) break;
             endforeach;

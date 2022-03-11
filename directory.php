@@ -21,9 +21,9 @@
         <?php $i = 0;
         foreach($tracks->track as $k=>$v): ?>
                 <?php if (empty($v->date)) { ?>
-                <span class="name"><?php echo $v->name; ?></span>
-                <span>   by    </span>
-                <span class="artist"><?php echo $v->artist; ?></span>
+                    <span class="name"><?= $v->name; ?></span>
+                    <span>   by    </span>
+                    <span class="artist"><?= $v->artist; ?></span>
                 <?php } else { echo "Devon is not listening to anything right now"; }  ?>
         <?php 
             $i++;

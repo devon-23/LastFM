@@ -8,3 +8,5 @@
             <span class="name"><?php echo $v->name; ?></span>
         <?php endforeach; ?>
     </ol>
+
+<include src="/footer.html"></include>

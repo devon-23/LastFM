@@ -6,15 +6,15 @@
 <ol class="top_tracks">
     <?php foreach($topTracks->track as $k=>$v): ?>
         <li>
-            <span class="name"><?php echo $v->name; ?></span>
+            <span class="name"><?= $v->name; ?></span>
             <span>   by   </span>
 
             <?php foreach($v->artist as $q=>$w): ?>
-                <span class="artist"><?php echo $w->name; ?></span>
+                <span class="artist"><?= $w->name; ?></span>
             <?php endforeach; ?>
 
             <span>   ---    </span>
-            <span class="playcount"><?php echo $v->playcount, ' plays'; ?></span>
+            <span class="playcount"><?= $v->playcount, ' plays'; ?></span>
         </li>
     <?php endforeach; ?>
 </ol>
