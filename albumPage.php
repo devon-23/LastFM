@@ -1,3 +1,8 @@
+<?php include_once('head.php'); ?>
+
+<!-- Makes a collage of the most played albums -->
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
