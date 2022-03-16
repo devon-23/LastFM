@@ -1,4 +1,6 @@
-<?php include_once('head.php'); ?>
+<?php 
+    include_once('head.php');
+?>
 
 <!-- Makes a collage of the most played albums -->
 

@@ -1,4 +1,7 @@
-<?php include_once('head.php'); ?>
+<?php 
+    include_once('head.php');
+    $tracks = $lastfm->getRecentTracks('devonbarks');
+?>
 
 <!-- Prints the tracks that are the most recent played -->
 

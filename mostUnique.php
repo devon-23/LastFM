@@ -1,4 +1,7 @@
-<?php include_once('head.php'); ?>
+<?php 
+    include_once('head.php'); 
+    $allArtists = $lastfm->getArtists('devonbarks');
+?>
 
 <!-- Displays the artist in my library with least amount of listeners -->
 

@@ -1,4 +1,7 @@
-<?php include_once('head.php'); ?>
+<?php 
+    include_once('head.php'); 
+    $tracks = $lastfm->getRecentTracks('devonbarks');
+?>
 
 <title>LastFM</title>
 <script src='index.php'></script>

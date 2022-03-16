@@ -1,4 +1,7 @@
-<?php include_once('head.php'); ?>
+<?php 
+    include_once('head.php'); 
+    $topTracks = $lastfm->getTopTracks('devonbarks');
+?>
 
 <!-- Prints the tracks with the highest stream count -->
 

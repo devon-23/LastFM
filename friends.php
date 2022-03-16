@@ -1,4 +1,7 @@
-<?php include_once('head.php'); ?>
+<?php 
+    include_once('head.php'); 
+    $topFriends = $lastfm->getFriends('devonbarks');
+?>
 
 <!-- Makes a list of friends -->
 

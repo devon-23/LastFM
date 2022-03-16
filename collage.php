@@ -1,4 +1,7 @@
-<?php include_once('head.php'); ?>
+<?php 
+    include_once('head.php'); 
+    $topAlbums = $lastfm->getTopAlbums('devonbarks');
+?>
 
 <!-- Makes a collage of the most played albums -->
 
