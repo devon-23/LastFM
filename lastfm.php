@@ -76,5 +76,19 @@ class LastFM {
         $iml = new SimpleXMLElement($data);
         //print_r($data);
         return $iml;
+        
+    }
+
+    function getInfo($artist, $album) {
+        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=$this->apiKey&artist=$artist&album=$album");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HEADER, 0);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 3);
+        $data = curl_exec($curl);
+        curl_close($curl);
+        $pml = new SimpleXMLElement($data);
+        //print_r($data);
+        return $pml;
+        
     }
 }

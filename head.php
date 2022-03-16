@@ -12,7 +12,8 @@
         //$topAlbums = $lastfm->getTopAlbums('devonbarks');
         //$topFriends = $lastfm->getFriends('devonbarks');
         //$allArtists = $lastfm->getArtists('devonbarks');
-        //print_r($allArtists);
+        //$albumInfo = $lastfm->getInfo('Cher', 'Believe');
+        //print_r($albumInfo);
         ?>
     </body>
 </html>
