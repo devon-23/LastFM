@@ -1,6 +1,8 @@
 <?php 
     include_once('head.php');
-    $albumInfo = $lastfm->getInfo('Cher', 'Believe');
+    $albumName = $_GET['id'];
+    $artist = $_GET['artist'];
+    $albumInfo = $lastfm->getInfo(str_replace(' ','+', $artist), str_replace(' ', '+', $albumName));
 ?>
 
 <!-- Loads a different Album based on what was clicked from the collage page -->
@@ -9,25 +11,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <?php 
-        $albumName = $_GET['id'];
-        $artist = $_GET['artist'];
-    ?>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href='style.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?= $albumName ?> | artistname</title>
+        <title><?= $albumName ?> | <?= $artist ?></title>
     </head>
     <body>
-        
+        <h3><?= $artist ?><?php foreach($albumInfo->album as $k=>$v): ?>
+            <img src="<?php echo $v->image[4]; ?>" alt="" style="right:50px; bottom:720px; border: 5px solid #000; float:right;">
+                        <?php endforeach; ?></h3>
         <h1><?= $albumName ?></h1>
-        <h2><?= $artist ?></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         
-        <h2>Heading</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <hr width="2.5px" size="500", color="black", style="position:absolute; left:75%; margin-left:-3px; top:0;">
         
-        <h2>Heading</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        
+         
     </body>
 </html>

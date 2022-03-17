@@ -1,0 +1,54 @@
+body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: #444444;
+    font-size: 9pt;
+    background-color: #FAFAFA;
+    line-height: 1em;
+}
+
+h3 {
+    color: black;
+    font-size: 25pt;
+    line-height: .05em;
+    padding-left: 3.25%;
+    bottom:520px; 
+    border:white;
+}
+
+h1 {
+    color: black;
+    font-size: 50pt;
+    line-height: 0.005em;
+    padding-left: 3%;
+}
+
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    line-height: 50px;
+    background-color: #eee;
+}
+    
+p {
+    color: rgba(21, 21, 21, 0.755);
+    font-size: 10pt;
+    display: flex;
+    width:40%;
+    margin-left: 30%;
+    margin-right: auto;
+    overflow: hidden;
+    margin-top: 5%;
+}
+
+hr {
+    width:"2.5px";
+     size:"500";
+     color:"black";
+     position:fixed;
+     right:300px; 
+     bottom:50px;
+}
