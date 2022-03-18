@@ -5,6 +5,14 @@ h1 {
     text-align: center;
 }
 
+h5 {
+    color: black;
+    font-size: 20pt;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    padding-top: 3%;
+    margin-left: 30%;
+}
+
 .container {
     display: flex;
     font-family: 'Helvetica', 'Arial', sans-serif;
@@ -21,4 +29,11 @@ a {
 
 a:hover {
     background-color: lightblue;
+}
+
+p {
+    color: black;
+    font-size: 20pt;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    margin-left: 35%;
 }

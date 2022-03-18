@@ -3,7 +3,7 @@
     <!-- <title>LastFM</title> -->
     <script src='index.php'></script>
     <body>
-        <h2><a href="/directory.php">back</a></h2>
+        <h2><a href="/directory2.php">back</a></h2>
         <?php
         require 'lastfm.php';
         $lastfm = new LastFM("092d316884d8385f35ad8b84f5f42ef8");

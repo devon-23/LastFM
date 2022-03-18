@@ -1,3 +1,9 @@
+<?php
+        require 'lastfm.php';
+        $lastfm = new LastFM("092d316884d8385f35ad8b84f5f42ef8");
+        $tracks = $lastfm->getRecentTracks('devonbarks');
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,5 +20,18 @@
             <div><a href="/topTracks.php">Top Songs</a></div>
             <div><a href="/friends.php">Friends</a></div>
         </div>
+        <h5>Now playing:</h5>
+        <?php $i = 0;
+        foreach($tracks->track as $k=>$v): ?>
+                <?php if (empty($v->date)) { ?>
+                    <img src="<?= $v->image[2]; ?>">
+                    <p><?= $v->name; ?><p>
+                    <span>by</span>
+                    <span class="artist"><?= $v->artist; ?></span>
+                <?php } else { echo "Devon is not listening to anything right now"; }  ?>
+            <?php $i++;
+                if($i == 1) break;
+            endforeach; 
+        ?>
     </body>
 </html>
