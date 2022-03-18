@@ -7,11 +7,12 @@
         <title>Devon Barclay | Home Page</title>
     </head>
     <body style="background-color: #f8e3d8">
-        <h1 style="text-align: center;">Devon Barclay</h1>
-        <h1 style="text-align: left;"><a href="/directory.php">LastFM Statistics</a>
-            style="text-align: center"><a href="/resume.html">Resume</a>
-            <a style="text-align: right" href="/resume.html">ETC</a>
-
-        
+        <h1>Devon's LastFM!</h1>
+        <div class="container space-around">
+            <div><a href="/recent.php">Recently Played</a></div>
+            <div><a href="/collage.php">Top Albums</a></div>
+            <div><a href="/topTracks.php">Top Songs</a></div>
+            <div><a href="/friends.php">Friends</a></div>
+        </div>
     </body>
 </html>
