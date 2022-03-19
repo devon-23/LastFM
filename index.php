@@ -10,7 +10,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="stylesheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Devon Barclay | Home Page</title>
+        <title>Devon Barclay | LastFM</title>
     </head>
     <body style="background-color: #f8e3d8">
         <h1>Devon's LastFM!</h1>
@@ -23,19 +23,26 @@
         <h5>Now playing:</h5>
         <?php $i = 0;
         foreach($tracks->track as $k=>$v): ?>
-                <?php if (empty($v->date)) {
-                    $artist="$v->artist";
-                    $album="$v->name";
-                    $albumInfo = $lastfm->getInfo(str_replace(' ','+', $artist), str_replace(' ', '+', $album));
-                    foreach($albumInfo->album as $q=>$w):?>
-                        <p><img src="<?= $w->image[2]; ?>"><br> <?= $v->name; ?><br>by <?= $v->artist; ?><p>
-                    <?php endforeach; ?>
-                <?php  } else { ?> 
-                        <p style="margin-left: 30%;">Devon is not listening to anything right now</p>
-                        <?php }  ?>
-            <?php $i++;
-                if($i == 1) break;
-            endforeach; 
+            <?php if (empty($v->date)) {
+                $artist="$v->artist";
+                $album="$v->name";
+                $albumInfo = $lastfm->getInfo(str_replace(' ','+', $artist), str_replace(' ', '+', $album));
+                foreach($albumInfo->album as $q=>$w):?>
+                    <p>
+                        <a href="albumPage.php?id=<?= $v->album; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>">
+                            <img src="<?= $v->image[2]; ?>" alt="<?= $t->image[2]; ?>">
+                            <?php endforeach; ?>
+                        </a>
+                        <br> <?= $v->name; ?>
+                        <br>by <?= $v->artist; ?>
+                    </p>
+                <?php endforeach; ?>
+            <?php  } else { ?> 
+                    <p style="margin-left: 30%;">Devon is not listening to anything right now</p>
+                    <?php }  ?>
+        <?php $i++;
+            if($i == 1) break;
+        endforeach; 
         ?>
     </body>
 </html>

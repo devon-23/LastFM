@@ -20,17 +20,23 @@
         <title><?= $albumName ?> | <?= $artist ?></title>
     </head>
     <body>
-        <?php if ($artist === null): ?>
+        
+        <?php if ($artist === null || $albumName === null): ?>
                 <h3>album not found.</h3>
         <?php else: ?>
-            <h3><?= $artist ?><?php foreach($albumInfo->album as $k=>$v): ?>
-                <img src="<?php echo $v->image[4]; ?>" alt="" style="right:50px; bottom:720px; border: 5px solid #000; float:right;">
+            <h3><?= $artist ?><?php foreach($albumInfo->album as $k=>$v): ?></h3>
+                <img src="<?php echo $v->image[4]; ?>" alt="unable to load" style="right:50px; bottom:720px; border: 5px solid #000; float:right;">
                         <?php endforeach; ?></h3>
             <h1><?= $albumName ?></h1>
         <?php endif; ?>
-        
-        <hr width="2.5px" size="500", color="black", style="position:absolute; left:75%; margin-left:-3px; top:0;">
-        
-         
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <hr width="2.5px" size="300", color="black">
+        <hr style="border-top: 1px solid black">
+
+        <?php foreach($albumInfo->album as $k=>$v):
+            foreach($v->wiki as $f=>$g): ?>
+                    <p><?= $g->summary; ?></p>
+        <?php endforeach;
+            endforeach; ?>
     </body>
 </html>

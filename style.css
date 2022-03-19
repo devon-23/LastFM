@@ -13,6 +13,7 @@ h3 {
     padding-left: 3.25%;
     bottom:520px; 
     border:white;
+    display: flex;
 }
 
 h1 {
@@ -48,7 +49,6 @@ hr {
     width:"2.5px";
      size:"500";
      color:"black";
-     position:fixed;
-     right:300px; 
-     bottom:50px;
+     float: right;
+     float: bottom;
 }
