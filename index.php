@@ -23,15 +23,16 @@
         <h5>Now playing:</h5>
         <?php $i = 0;
         foreach($tracks->track as $k=>$v): ?>
-                <?php if (empty($v->date)) {
+                <?php if (!empty($v->date)) {
                     $artist="$v->artist";
                     $album="$v->name";
                     $albumInfo = $lastfm->getInfo(str_replace(' ','+', $artist), str_replace(' ', '+', $album));
                     foreach($albumInfo->album as $q=>$w):?>
                         <p><img src="<?= $w->image[2]; ?>"><br> <?= $v->name; ?><br>by <?= $v->artist; ?><p>
                     <?php endforeach; ?>
-                    
-                <?php  } else { echo "Devon is not listening to anything right now"; }  ?>
+                <?php  } else { ?> 
+                        <p style="margin-left: 30%;">Devon is not listening to anything right now</p>
+                        <?php }  ?>
             <?php $i++;
                 if($i == 1) break;
             endforeach; 
