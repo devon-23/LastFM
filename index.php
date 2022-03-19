@@ -23,7 +23,7 @@
         <h5>Now playing:</h5>
         <?php $i = 0;
         foreach($tracks->track as $k=>$v): ?>
-                <?php if (!empty($v->date)) {
+                <?php if (empty($v->date)) {
                     $artist="$v->artist";
                     $album="$v->name";
                     $albumInfo = $lastfm->getInfo(str_replace(' ','+', $artist), str_replace(' ', '+', $album));
