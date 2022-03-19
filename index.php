@@ -1,20 +1,40 @@
-<?php 
-    include_once('head.php'); 
-    $tracks = $lastfm->getRecentTracks('devonbarks');
-?>
+<?php
+        require 'lastfm.php';
+        $lastfm = new LastFM("092d316884d8385f35ad8b84f5f42ef8");
+        $tracks = $lastfm->getRecentTracks('devonbarks');
+    ?>
 
-<title>LastFM</title>
-<script src='index.php'></script>
-    <body>
-        <h1>Recently played songs</h1>
-        <ol class="playlist">
-            <?php foreach($tracks->track as $k=>$v): ?>
-                <li>
-                    <span class="name"><?php echo $v->name; ?></span>
-                    <span>   ---    </span>
-                    <span class="artist"><?php echo $v->artist; ?></span>
-                </li>
-            <?php endforeach; ?>
-        </ol>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="stylesheet.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Devon Barclay | Home Page</title>
+    </head>
+    <body style="background-color: #f8e3d8">
+        <h1>Devon's LastFM!</h1>
+        <div class="container space-around">
+            <div><a href="/recent.php">Recently Played</a></div>
+            <div><a href="/collage.php">Top Albums</a></div>
+            <div><a href="/topTracks.php">Top Songs</a></div>
+            <div><a href="/friends.php">Friends</a></div>
+        </div>
+        <h5>Now playing:</h5>
+        <?php $i = 0;
+        foreach($tracks->track as $k=>$v): ?>
+                <?php if (empty($v->date)) {
+                    $artist="$v->artist";
+                    $album="$v->name";
+                    $albumInfo = $lastfm->getInfo(str_replace(' ','+', $artist), str_replace(' ', '+', $album));
+                    foreach($albumInfo->album as $q=>$w):?>
+                        <p><img src="<?= $w->image[2]; ?>"><br> <?= $v->name; ?><br>by <?= $v->artist; ?><p>
+                    <?php endforeach; ?>
+                    
+                <?php  } else { echo "Devon is not listening to anything right now"; }  ?>
+            <?php $i++;
+                if($i == 1) break;
+            endforeach; 
+        ?>
     </body>
 </html>
