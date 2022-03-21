@@ -20,25 +20,14 @@
         <title><?= $albumName ?> | <?= $artist ?></title>
     </head>
     <body style="background-color: #f8e3d8">
+    <section>
         <?php if ($artist === null || $albumName === null): ?>
                 <h3>album not found.</h3>
         <?php else: ?>
-            <h3><?= $artist ?><?php foreach($albumInfo->album as $k=>$v): ?></h3>
-                <img src="<?php echo $v->image[4]; ?>" alt="unable to load" style="right:50px; bottom:720px; border: 5px solid #000; float:right;">
-                        <?php endforeach; ?>
+            <h3><?= $artist ?></h3>
             <h1><?= $albumName ?></h1>
         <?php endif; ?>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <!-- <hr width="2.5px" size="300", color="black">
-        <hr style="border-top: 1px solid black"> -->
-
-        <?php foreach($albumInfo->album as $k=>$v):
-            foreach($v->wiki as $f=>$g): 
-                $string = substr($g->summary, 0, strpos($g->summary, "<a"))?>
-                <p><?= $string; ?></p>
-        <?php endforeach;
-            endforeach; ?>
-        <table style="float:left; padding-bottom: 2%; font-size: 12pt;">
+        <table style="float:left; font-size: 12pt; padding-left: 3.25%;">
             <tr>
                 <th># </th>
                 <th>Title </th> 
@@ -58,5 +47,18 @@
                 endforeach;
             endforeach; ?>
         </table>
-        </body>
+    </section>
+    <aside style="float: right;">
+        <?php foreach($albumInfo->album as $k=>$v): ?>
+            <img src="<?php echo $v->image[4]; ?>" alt="unable to load" style="right:50px; bottom:720px; border: 5px solid #000; float:right;">
+                        <?php endforeach; ?>
+        <?php foreach($albumInfo->album as $k=>$v):
+            foreach($v->wiki as $f=>$g): 
+                $string = substr($g->summary, 0, strpos($g->summary, "<a"))?>
+                <p style="float: right;"><?= $string; ?></p>
+        <?php endforeach;
+            endforeach; ?>
+    </aside>
+        
+    </body>
 </html>

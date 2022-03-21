@@ -33,8 +33,17 @@
                             <img src="<?= $v->image[2]; ?>" alt="<?= $t->image[2]; ?>">
                             <?php endforeach; ?>
                         </a>
-                        <br> <?= $v->name; ?>
-                        <br>by <?= $v->artist; ?>
+                        <br> 
+                        <a href="songPage.php?track=<?= $v->name; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>">
+                            <?= $v->name; ?> 
+                            <?php endforeach; ?>
+                        </a>
+                        <br>
+                        <a href="artistPage.php?artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>">
+                            by <?= $v->artist; ?>
+                            <?php endforeach; ?>
+                        </a>
+                        
                     </p>
                 <?php endforeach; ?>
             <?php  } else { ?> 

@@ -75,8 +75,7 @@ class LastFM {
         curl_close($curl);
         $iml = new SimpleXMLElement($data);
         //print_r($data);
-        return $iml;
-        
+        return $iml; 
     }
 
     function getInfo($artist, $album) {
@@ -89,6 +88,29 @@ class LastFM {
         $pml = new SimpleXMLElement($data);
         //print_r($data);
         return $pml;
-        
+    }
+
+    function getTrackInfo($artist, $track) {
+        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=$this->apiKey&artist=$artist&track=$track");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HEADER, 0);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 3);
+        $data = curl_exec($curl);
+        curl_close($curl);
+        $lml = new SimpleXMLElement($data);
+        //print_r($data);
+        return $lml;
+    }
+
+    function getArtistInfo($artist) {
+        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=$artist&api_key=$this->apiKey");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HEADER, 0);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 3);
+        $data = curl_exec($curl);
+        curl_close($curl);
+        $hml = new SimpleXMLElement($data);
+        //print_r($data);
+        return $hml;
     }
 }
