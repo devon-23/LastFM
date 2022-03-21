@@ -29,7 +29,7 @@
                 $albumInfo = $lastfm->getInfo(str_replace(' ','+', $artist), str_replace(' ', '+', $album));
                 foreach($albumInfo->album as $q=>$w):?>
                     <p>
-                        <a href="albumPage.php?id=<?= $v->album; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>">
+                        <a href="albumPage.php?album=<?= $v->album; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>">
                             <img src="<?= $v->image[2]; ?>" alt="<?= $t->image[2]; ?>">
                             <?php endforeach; ?>
                         </a>
