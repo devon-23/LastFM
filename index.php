@@ -2,6 +2,9 @@
         require 'lastfm.php';
         $lastfm = new LastFM("092d316884d8385f35ad8b84f5f42ef8");
         $tracks = $lastfm->getRecentTracks('devonbarks');
+        $weeklyAlbums = $lastfm->getWeeklyAlbums();
+        $weeklyArtists = $lastfm->getWeeklyArtists();
+        $weeklyTracks = $lastfm->getWeeklyTracks();
     ?>
 
 <!DOCTYPE html>
@@ -13,13 +16,15 @@
         <title>Devon Barclay | LastFM</title>
     </head>
     <body style="background-color: #f8e3d8">
-        <h1>Devon's LastFM!</h1>
-        <div class="container space-around">
-            <div><a href="/recent.php">Recently Played</a></div>
-            <div><a href="/collage.php">Top Albums</a></div>
-            <div><a href="/topTracks.php">Top Songs</a></div>
-            <div><a href="/friends.php">Friends</a></div>
-        </div>
+        <h1>LastFM!</h1>
+        <nav class="Navigation">
+            <div class="container space-around">
+                <div><a href="/recent.php">Recently Played</a></div>
+                <div><a href="/collage.php">Top Albums</a></div>
+                <div><a href="/topTracks.php">Top Songs</a></div>
+                <div><a href="/friends.php">Friends</a></div>
+            </div>
+        </nav>
         <h5>Now playing:</h5>
         <?php $i = 0;
         foreach($tracks->track as $k=>$v): ?>
@@ -48,10 +53,44 @@
                 <?php endforeach; ?>
             <?php  } else { ?> 
                     <p style="margin-left: 30%;">Devon is not listening to anything right now</p>
-                    <?php }  ?>
+                <?php }  ?>
         <?php $i++;
             if($i == 1) break;
         endforeach; 
         ?>
+        <center>
+            <h3><br><br>Weekly Charts</h3>
+        </center>
+        <nav class="Weekly Charts">
+            <div class="container space-around">
+                <div>
+                    <h3>Top Albums</h3>
+                    <?php foreach($weeklyAlbums->weeklyalbumchart as $k=>$v): 
+                            foreach($v->album as $q=>$w): ?>
+                        <br> <?= $w->name ?>
+                    <?php endforeach;
+                        endforeach;
+                    ?>
+                </div>
+                <div>
+                    <h3>Top Songs</h3>
+                    <?php foreach($weeklyTracks->weeklytrackchart as $k=>$v): 
+                            foreach($v->track as $q=>$w): ?>
+                        <br> <?= $w->name ?>
+                    <?php endforeach;
+                        endforeach;
+                    ?>
+                </div>
+                <div>
+                    <h3>Top Artists</h3>
+                    <?php foreach($weeklyArtists->weeklyartistchart as $k=>$v): 
+                            foreach($v->artist as $q=>$w): ?>
+                        <br> <?= $w->name ?>
+                    <?php endforeach;
+                        endforeach;
+                    ?>
+                </div>
+            </div>
+        </nav>
     </body>
 </html>

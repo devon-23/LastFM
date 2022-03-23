@@ -21,7 +21,7 @@
     <body style="background-color: #f8e3d8">
     <section>
         <?php if ($artist === null): ?>
-                <h3>song not found.</h3>
+                <h3>artist not found.</h3>
         <?php else: ?>
             <h3><?= $artist ?></h3>
         <?php endif; ?>

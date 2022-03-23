@@ -113,4 +113,40 @@ class LastFM {
         //print_r($data);
         return $hml;
     }
+
+    function getWeeklyAlbums() {
+        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=user.getweeklyalbumchart&user=devonbarks&api_key=$this->apiKey&limit=5");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HEADER, 0);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 3);
+        $data = curl_exec($curl);
+        curl_close($curl);
+        $gml = new SimpleXMLElement($data);
+        //print_r($data);
+        return $gml;
+    }
+
+    function getWeeklyArtists() {
+        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=devonbarks&api_key=$this->apiKey&limit=5");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HEADER, 0);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 3);
+        $data = curl_exec($curl);
+        curl_close($curl);
+        $fml = new SimpleXMLElement($data);
+        //print_r($data);
+        return $fml;
+    }
+
+    function getWeeklyTracks() {
+        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=devonbarks&api_key=$this->apiKey&limit=5");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HEADER, 0);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 3);
+        $data = curl_exec($curl);
+        curl_close($curl);
+        $dml = new SimpleXMLElement($data);
+        //print_r($data);
+        return $dml;
+    }
 }
