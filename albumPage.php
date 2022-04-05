@@ -41,7 +41,11 @@
                     <tr>
                         <td> <?= $i ?></td>
                         <td> <?= $u->name; ?></td>
-                        <td> <?= gmdate("i:s", $time); ?></td>
+                        <td> <?php if($time === 'userdata: NULL') {
+                                        echo 'N/A';
+                                    } else {
+                                    echo gmdate("i:s", $time);
+                            } ?></td>
                     </tr>
             <?php endforeach;
                 endforeach;

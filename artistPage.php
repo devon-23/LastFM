@@ -7,8 +7,7 @@
     endif;
 ?>
 
-<!-- Loads a different song based on what was clicked from the index page -->
-
+<!-- Loads a different artist based on what was clicked from the index page -->
 
 <!DOCTYPE html>
 <html lang="en">
