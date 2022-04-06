@@ -10,16 +10,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <div align=right>
-            <form>
-                <div>
-                    <label for="name">Search</label> 
-                    <input type="text">
-                </div>
-                <br>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="stylesheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,7 +62,7 @@
         <center>
             <h3><br><br>Weekly Charts</h3>
         </center>
-        <nav class="Weekly Charts">
+        <nav class="Weekly Charts" style="padding-bottom: 20px;">
             <div class="container space-around">
                 <div>
                     <h3>Top Albums</h3>
