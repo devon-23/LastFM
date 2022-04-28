@@ -13,11 +13,10 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="stylesheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
         <title>Devon Barclay | LastFM</title>
     </head>
     <body style="background-color: #f8e3d8">
-        <h1 style="padding-top: 0%;">LastFM!</h1>
+        <h1 style="padding-top: 0%;">Devons LastFM!</h1>
         <nav class="Navigation">
             <div class="container space-around">
                 <div><a href="/recent.php">Recently Played</a></div>
@@ -49,7 +48,6 @@
                             by <?= $v->artist; ?>
                             <?php endforeach; ?>
                         </a>
-                        
                     </p>
                 <?php endforeach; ?>
             <?php  } else { ?> 

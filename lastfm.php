@@ -91,7 +91,7 @@ class LastFM {
     }
 
     function getTrackInfo($artist, $track) {
-        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=$this->apiKey&artist=$artist&track=$track");
+        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=$this->apiKey&artist=$artist&track=$track&user=devonbarks");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HEADER, 0);
         curl_setopt($curl, CURLOPT_TIMEOUT, 3);

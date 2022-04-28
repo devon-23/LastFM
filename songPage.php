@@ -26,12 +26,19 @@
                 <?php else: ?>
                     <h3><?= $artist ?></h3>
                     <h1><?= $track ?></h1>
-                <?php endif; ?>
+                <?php endif; 
+                foreach($trackInfo->track as $k=>$v): 
+                    if ($v->$userplaycount === '1'): ?>
+                        <h4>I have listened to this song <?= $v->userplaycount; ?> time</h1>
+                    <?php else: ?>
+                        <h4>I have listened to this song <?= $v->userplaycount; ?> times</h1>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </div>
             <div class="container-column right">
                 <?php foreach($trackInfo->track as $k=>$v): 
                     foreach($v->album as $f=>$g):?>
-                        <img src="<?php echo $g->image[3]; ?>" alt="unable to load" style="right:50px; bottom:720px; border: 5px solid #000; float:right;">
+                        <img src="<?= $g->image[3]; ?>" alt="unable to load" style="right:50px; bottom:720px; border: 5px solid #000; float:right;">
                 <?php endforeach; 
                 endforeach;
                 foreach($trackInfo->track as $k=>$v):
