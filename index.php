@@ -19,10 +19,10 @@
         <h1 style="padding-top: 0%;">Devons LastFM!</h1>
         <nav class="Navigation">
             <div class="container space-around">
-                <div><a href="/recent.php">Recently Played</a></div>
-                <div><a href="/collage.php">Top Albums</a></div>
-                <div><a href="/topTracks.php">Top Songs</a></div>
-                <div><a href="/friends.php">Friends</a></div>
+                <div><a href="recent.php">Recently Played</a></div>
+                <div><a href="collage.php">Top Albums</a></div>
+                <div><a href="topTracks.php">Top Songs</a></div>
+                <div><a href="friends.php">Friends</a></div>
             </div>
         </nav>
         <h5>Now playing:</h5>
