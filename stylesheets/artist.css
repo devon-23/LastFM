@@ -87,3 +87,9 @@ o {
     font-family: 'Helvetica', 'Arial', sans-serif;
     margin-left: 3%;
 }
+
+img {
+    position: relative;
+    float: left;
+    border: 5px solid #fff; 
+}
