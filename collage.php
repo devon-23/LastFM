@@ -9,7 +9,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href='stylesheets/artist.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Recently Played</title>
+        <title>Top Albums</title>
 </head>
 <h1>Top Albums:</h1>
 <form action="collage.php" method="get" style="font-size: 20px; margin-left: 4%;">
