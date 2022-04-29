@@ -9,7 +9,7 @@
         <link rel="stylesheet" href='stylesheets/artist.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Recently Played</title>
-    </head>
+</head>
 <h1>Recently played songs</h1>
     <ol class="playlist">
         <?php foreach($tracks->track as $k=>$v): ?>

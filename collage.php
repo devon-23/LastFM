@@ -5,8 +5,14 @@
 
 <!-- Makes a collage of the most played albums -->
 
+<head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href='stylesheets/artist.css'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recently Played</title>
+</head>
 <h1>Top Albums:</h1>
-<form action="collage.php" method="get">
+<form action="collage.php" method="get" style="font-size: 20px; margin-left: 4%;">
     how many would you like to see? (limit 50) <input type="number" name="name">
     <input type="submit">
 </form>
@@ -18,7 +24,7 @@
         if ($_GET["name"] > 1) {
             foreach($topAlbums->album as $k=>$v): ?>
                 <a href="albumPage.php?album=<?= $v->name; ?>&artist=<?php foreach($v->artist as $q=>$w):echo $w->name; endforeach; ?>"> 
-                    <img src="<?php echo $v->image[2]; ?>" alt="">
+                    <img src="<?php echo $v->image[2]; ?>" alt="" style="margin-left: 3%;">
                 </a>
                 <?php $i++;
                 if($i == $_GET["name"]) break;
