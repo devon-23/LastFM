@@ -9,18 +9,21 @@ body {
 h3 {
     color: black;
     font-size: 25pt;
-    line-height: .05em;
+    line-height: 0.05em;
     padding-left: 3.25%;
-    bottom: 520px; 
+    bottom: 20px; 
     border:white;
     display: flex;
+    padding-bottom: 1%;
+    margin: 0%;
 }
 
 h1 {
     color: black;
     font-size: 50pt;
-    line-height: 0.005em;
+    line-height: 1.005em;
     padding-left: 3%;
+    margin: 0%;
 }
 
 header {
@@ -38,8 +41,7 @@ p {
     color: rgba(21, 21, 21, 0.755);
     font-size: 10pt;
     display: flex;
-    width: 90%;
-    float: right;
+    width: 80%;
 }
 
 aside {
@@ -55,4 +57,11 @@ hr {
      color:"black";
      float: right;
      float: bottom;
+}
+
+o {
+    color: black;
+    font-size: 20pt;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    margin-left: 3%;
 }

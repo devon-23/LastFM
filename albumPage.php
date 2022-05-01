@@ -20,19 +20,19 @@
         <title><?= $albumName ?> | <?= $artist ?></title>
     </head>
     <body style="background-color: #f8e3d8">
-    <section>
-        <?php if ($artist === null || $albumName === null): ?>
+        <section>
+            <?php if ($artist === null || $albumName === null): ?>
                 <h3>album not found.</h3>
-        <?php else: ?>
+            <?php else: ?>
             <h3><?= $artist ?></h3>
             <h1><?= $albumName ?></h1>
-        <?php endif; ?>
-        <table style="float:left; font-size: 12pt; padding-left: 3.25%;">
-            <tr>
-                <th># </th>
-                <th>Title </th> 
-                <th>Time </th>
-            </tr>
+            <?php endif; ?>
+            <table style="float:left; font-size: 12pt; padding-left: 3.25%;">
+                <tr>
+                    <th># </th>
+                    <th>Title </th> 
+                    <th>Time </th>
+                </tr>
             <?php foreach($albumInfo->album as $k=>$v):
                 foreach($v->tracks as $f=>$g):
                     $i = 0; 
