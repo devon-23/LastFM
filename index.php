@@ -1,28 +1,44 @@
 <?php
         require 'lastfm.php';
+        error_reporting(E_ALL ^ E_WARNING);
+        $user = $_GET["user"];
+        if ($_GET["user"] == NULL) {
+            $user = 'devonbarks';
+        }
         $lastfm = new LastFM("092d316884d8385f35ad8b84f5f42ef8");
-        $tracks = $lastfm->getRecentTracks('devonbarks');
-        $weeklyAlbums = $lastfm->getWeeklyAlbums();
-        $weeklyArtists = $lastfm->getWeeklyArtists();
-        $weeklyTracks = $lastfm->getWeeklyTracks();
+        $tracks = $lastfm->getRecentTracks($user);
+        $weeklyAlbums = $lastfm->getWeeklyAlbums($user);
+        $weeklyArtists = $lastfm->getWeeklyArtists($user);
+        $weeklyTracks = $lastfm->getWeeklyTracks($user);
+        $userInfo = $lastfm->getUserInfo($user);
     ?>
 
 <!DOCTYPE html>
 <html lang="en">
+<header>
+        <h2>
+            <form action="index.php" method="get">
+                <label>Username:</label>
+                <input type="text" name="user">
+                <input type="submit">
+            </form>
+        </h2>
+    </header>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="stylesheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Devon Barclay | LastFM</title>
     </head>
+    
     <body style="background-color: #f8e3d8">
-        <h1 style="padding-top: 0%;">Devons LastFM!</h1>
+        <h1 style="padding-top: 0%;"><?php foreach($userInfo->user as $k=>$v): echo $v->realname; endforeach;?>s LastFM!</h1>
         <nav class="Navigation">
             <div class="container space-around">
-                <div><a href="recent.php">Recently Played</a></div>
-                <div><a href="collage.php">Top Albums</a></div>
-                <div><a href="topTracks.php">Top Songs</a></div>
-                <div><a href="friends.php">Friends</a></div>
+                <div><a href="recent.php?user=<?=$user?>">Recently Played</a></div>
+                <div><a href="collage.php?user=<?=$user?>">Top Albums</a></div>
+                <div><a href="topTracks.php?user=<?=$user?>">Top Songs</a></div>
+                <div><a href="friends.php?user=<?=$user?>">Friends</a></div>
             </div>
         </nav>
         <h5>Now playing:</h5>
@@ -51,7 +67,7 @@
                     </p>
                 <?php endforeach; ?>
             <?php  } else { ?> 
-                    <center>Devon is not listening to anything right now</center>
+                    <center><?php foreach($userInfo->user as $k=>$v): echo $v->realname; endforeach;?> is not listening to anything right now</center>
                 <?php }  ?>
         <?php $i++;
             if($i == 1) break;

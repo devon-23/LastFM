@@ -1,15 +1,20 @@
 <?php 
     include_once('head.php');
-    $tracks = $lastfm->getRecentTracks('devonbarks');
+    $user = $_GET["user"];
+    if ($_GET["user"] == NULL) {
+        $user = 'devonbarks';
+    }
+    $tracks = $lastfm->getRecentTracks($user);
 ?>
 
 <!-- Prints the tracks that are the most recent played -->
 
 <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href='stylesheets/artist.css'>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Recently Played</title>
+    <h2><a href="index.php?user=<?=$user?>">back</a></h2>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href='stylesheets/artist.css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recently Played</title>
 </head>
 <h1>Recently played songs</h1>
     <ol class="playlist">

@@ -1,15 +1,20 @@
 <?php 
-    include_once('head.php'); 
-    $topAlbums = $lastfm->getTopAlbums('devonbarks');
+    include_once('head.php');
+    $user = $_GET["user"];
+    if ($_GET["user"] == NULL) {
+        $user = 'devonbarks';
+    }
+    $topAlbums = $lastfm->getTopAlbums($user);
 ?>
 
 <!-- Makes a collage of the most played albums -->
 
 <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href='stylesheets/artist.css'>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Top Albums</title>
+    <h2><a href="index.php?user=<?=$user?>">back</a></h2>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href='stylesheets/artist.css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Albums</title>
 </head>
 <h1>Top Albums:</h1>
 <form action="collage.php" method="get" style="font-size: 20px; margin-left: 4%;">

@@ -5,6 +5,14 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    color: black;
+    font-size: 13pt;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    padding-bottom: -40%;
+}
+
+
 center {
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-size: 25pt;

@@ -1,15 +1,20 @@
 <?php 
-    include_once('head.php'); 
-    $topTracks = $lastfm->getTopTracks('devonbarks');
+    include_once('head.php');
+    $user = $_GET["user"];
+    if ($_GET["user"] == NULL) {
+        $user = 'devonbarks';
+    }
+    $topTracks = $lastfm->getTopTracks($user);
 ?>
 
 <!-- Prints the tracks with the highest stream count -->
 
 <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href='stylesheets/artist.css'>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Recently Played</title>
+    <h2><a href="index.php?user=<?=$user?>">back</a></h2>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href='stylesheets/artist.css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recently Played</title>
 </head>
 <h1>Top Tracks:</h1>
 <ol class="top_tracks">

@@ -114,8 +114,8 @@ class LastFM {
         return $hml;
     }
 
-    function getWeeklyAlbums() {
-        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=user.getweeklyalbumchart&user=devonbarks&api_key=$this->apiKey&limit=5");
+    function getWeeklyAlbums($user) {
+        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=user.getweeklyalbumchart&user=$user&api_key=$this->apiKey&limit=5");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HEADER, 0);
         curl_setopt($curl, CURLOPT_TIMEOUT, 3);
@@ -126,8 +126,8 @@ class LastFM {
         return $gml;
     }
 
-    function getWeeklyArtists() {
-        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=devonbarks&api_key=$this->apiKey&limit=5");
+    function getWeeklyArtists($user) {
+        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=$user&api_key=$this->apiKey&limit=5");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HEADER, 0);
         curl_setopt($curl, CURLOPT_TIMEOUT, 3);
@@ -138,8 +138,8 @@ class LastFM {
         return $fml;
     }
 
-    function getWeeklyTracks() {
-        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=devonbarks&api_key=$this->apiKey&limit=5");
+    function getWeeklyTracks($user) {
+        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=$user&api_key=$this->apiKey&limit=5");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HEADER, 0);
         curl_setopt($curl, CURLOPT_TIMEOUT, 3);
@@ -148,5 +148,17 @@ class LastFM {
         $dml = new SimpleXMLElement($data);
         //print_r($data);
         return $dml;
+    }
+
+    function getUserInfo($user) {
+        $curl = curl_init("http://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=$user&api_key=$this->apiKey");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HEADER, 0);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 3);
+        $data = curl_exec($curl);
+        curl_close($curl);
+        $tml = new SimpleXMLElement($data);
+        //print_r($data);
+        return $tml;
     }
 }
