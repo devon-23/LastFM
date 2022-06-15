@@ -47,22 +47,21 @@
                                     echo gmdate("i:s", $time);
                             } ?></td>
                     </tr>
-            <?php endforeach;
-                endforeach;
-            endforeach; ?>
-        </table>
-    </section>
-    <aside style="float: right;">
-        <?php foreach($albumInfo->album as $k=>$v): ?>
-            <img src="<?php echo $v->image[4]; ?>" alt="unable to load" style="right:50px; bottom:720px; border: 5px solid #000; float:right;">
+                <?php endforeach;
+                  endforeach;
+                endforeach; ?>
+            </table>
+        </section>
+        <aside style="float: right;">
+            <?php foreach($albumInfo->album as $k=>$v): ?>
+                <img src="<?php echo $v->image[4]; ?>" alt="unable to load" style="right:50px; bottom:720px; border: 5px solid #000; float:right;">
                         <?php endforeach; ?>
-        <?php foreach($albumInfo->album as $k=>$v):
-            foreach($v->wiki as $f=>$g): 
-                $string = substr($g->summary, 0, strpos($g->summary, "<a"))?>
-                <p style="float: right;"><?= $string; ?></p>
-        <?php endforeach;
+            <?php foreach($albumInfo->album as $k=>$v):
+                foreach($v->wiki as $f=>$g): 
+                    $string = substr($g->summary, 0, strpos($g->summary, "<a"))?>
+                    <p style="float: right;"><?= $string; ?></p>
+            <?php endforeach;
             endforeach; ?>
-    </aside>
-        
+        </aside>  
     </body>
 </html>

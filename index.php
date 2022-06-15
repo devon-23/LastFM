@@ -97,5 +97,13 @@
                 </div>
             </div>
         </nav>
+        <h6>Last seen: 
+            <?php $i = 0;
+            foreach($tracks->track as $k=>$v):  
+                echo $v->date;
+                $i++;
+                if ($i == 2) break;
+            endforeach; ?>
+        </h6>
     </body>
 </html>
