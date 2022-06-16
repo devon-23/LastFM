@@ -35,7 +35,18 @@
     </head>
     
     <body style="background-color: #f8e3d8">
-        <h1 style="padding-top: 0%;"><?php foreach($userInfo->user as $k=>$v): echo $v->realname; endforeach;?>s LastFM!</h1>
+        <h1 style="padding-top: 0%;"><?php $i = 0; foreach($userInfo->user as $k=>$v): 
+                                            if(empty($v->realname)) {
+                                                echo $v->name;
+                                            } else {
+                                                echo $v->realname;
+                                            } $i++;
+                                        endforeach;
+                                        if ($i == 0) {
+                                            echo "user not found\n"; ?> <br> <center><h2><?php
+                                            echo "unable to locate user " . $_GET["user"];
+                                            exit(); ?> </h2></center>
+                                        <?php }?>s LastFM!</h1>
         <nav class="Navigation">
             <div class="container space-around">
                 <div><a href="recent.php?user=<?=$user?>">Recently Played</a></div>
@@ -70,7 +81,12 @@
                     </p>
                 <?php endforeach; ?>
             <?php  } else { ?> 
-                    <center><?php foreach($userInfo->user as $k=>$v): echo $v->realname; endforeach;?> is not listening to anything right now</center>
+                    <center><?php foreach($userInfo->user as $k=>$v): 
+                                            if(empty($v->realname)) {
+                                                echo $v->name;
+                                            } else {
+                                                echo $v->realname;
+                                            } endforeach;?> is not listening to anything right now</center>
                 <?php }  ?>
         <?php $i++;
             if($i == 1) break;
@@ -120,7 +136,7 @@
             <?php $i = 0;
             foreach($tracks->track as $k=>$v):
                 if (!empty($v->date)) { 
-                    $date = date_create($v->date, timezone_open('Etc/GMT+1')); //idk what time zone this is but it converts it to eastern correctly (i believe)
+                    $date = date_create($v->date, timezone_open('Etc/GMT+0')); //idk what time zone this is but it converts it to eastern correctly (i believe)
                     date_timezone_set($date, timezone_open('America/New_York'));
                     echo $date->format('F j g:i a');
                 } else {
