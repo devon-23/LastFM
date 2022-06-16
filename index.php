@@ -5,6 +5,9 @@
         if ($_GET["user"] == NULL) {
             $user = 'devonbarks';
         }
+
+        date_default_timezone_set("America/New_York");
+
         $lastfm = new LastFM("092d316884d8385f35ad8b84f5f42ef8");
         $tracks = $lastfm->getRecentTracks($user);
         $weeklyAlbums = $lastfm->getWeeklyAlbums($user);
@@ -115,10 +118,16 @@
         </nav>
         <h6>Last seen: 
             <?php $i = 0;
-            foreach($tracks->track as $k=>$v):  
-                echo $v->date;
+            foreach($tracks->track as $k=>$v):
+                if (!empty($v->date)) { 
+                    $date = date_create($v->date, timezone_open('Etc/GMT+1')); //idk what time zone this is but it converts it to eastern correctly (i believe)
+                    date_timezone_set($date, timezone_open('America/New_York'));
+                    echo $date->format('F j g:i a');
+                } else {
+                    echo date('F j g:i a'); //currently playing music
+                }
                 $i++;
-                if ($i == 2) break;
+                if ($i == 1) break;
             endforeach; ?>
         </h6>
     </body>

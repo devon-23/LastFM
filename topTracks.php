@@ -22,7 +22,12 @@
         <o>
             <li>
                 <a href="albumPage.php?album=<?= $v->album; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $t->name; ?>">
-                    <img src="<?= $v->image[2]; ?>" alt="<?= $t->image[2]; ?>">
+                    <?php
+                            $albumInfo = $lastfm->getInfo(str_replace(' ','+', $t->name), str_replace(' ', '+', $v->album));
+                        foreach($albumInfo->album as $s=>$d): ?>
+                            <img src="<?php echo $d->image[4]; ?>" alt="unable to load">
+                            <?php endforeach; ?>
+                    
                     <?php endforeach; ?>
                 </a>
                 <br><br>
