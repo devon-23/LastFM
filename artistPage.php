@@ -12,6 +12,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <h2><a href="index.php?user=<?=$_GET["user"]?>">back</a></h2>
         <meta charset="UTF-8">
         <link rel="stylesheet" href='style.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

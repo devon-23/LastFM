@@ -3,8 +3,9 @@
     error_reporting(E_ALL ^ E_WARNING);
     $track = $_GET['track'];
     $artist = $_GET['artist'];
+    $track = str_replace('’', '\'', $track);
     if ($track != null && $artist != null):
-        $trackInfo = $lastfm->getTrackInfo(str_replace(' ','+', $artist), str_replace(' ', '+', $track));
+        $trackInfo = $lastfm->getTrackInfo(str_replace(' ','+', $artist), str_replace(' ', '+', $track), $_GET["user"]);
     endif;
 ?>
 
@@ -13,6 +14,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <h2><a href="index.php?user=<?=$_GET["user"]?>">back</a></h2>
         <meta charset="UTF-8">
         <link rel="stylesheet" href='style.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +30,7 @@
                     <h1><?= $track ?></h1>
                 <?php endif; 
                 foreach($trackInfo->track as $k=>$v): ?>
-                        <o>I have listened to this song <?= $v->userplaycount; ?> times</o>
+                        <o><?=$_GET["user"]?> has listened to this song <?= $v->userplaycount; ?> times</o>
                 <?php endforeach; ?>
             </div>
             <aside style="float: right;">

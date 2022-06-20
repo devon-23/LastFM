@@ -1,20 +1,20 @@
 <?php
-        require 'lastfm.php';
-        error_reporting(E_ALL ^ E_WARNING);
-        $user = $_GET["user"];
-        if ($_GET["user"] == NULL) {
-            $user = 'devonbarks';
-        }
+    require 'lastfm.php';
+    error_reporting(E_ALL ^ E_WARNING);
+    $user = $_GET["user"];
+    if ($_GET["user"] == NULL) {
+        $user = 'devonbarks';
+    }
 
-        date_default_timezone_set("America/New_York");
+    date_default_timezone_set("America/New_York");
 
-        $lastfm = new LastFM("092d316884d8385f35ad8b84f5f42ef8");
-        $tracks = $lastfm->getRecentTracks($user);
-        $weeklyAlbums = $lastfm->getWeeklyAlbums($user);
-        $weeklyArtists = $lastfm->getWeeklyArtists($user);
-        $weeklyTracks = $lastfm->getWeeklyTracks($user);
-        $userInfo = $lastfm->getUserInfo($user);
-    ?>
+    $lastfm = new LastFM("092d316884d8385f35ad8b84f5f42ef8");
+    $tracks = $lastfm->getRecentTracks($user);
+    $weeklyAlbums = $lastfm->getWeeklyAlbums($user);
+    $weeklyArtists = $lastfm->getWeeklyArtists($user);
+    $weeklyTracks = $lastfm->getWeeklyTracks($user);
+    $userInfo = $lastfm->getUserInfo($user);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +46,8 @@
                                             echo "user not found\n"; ?> <br> <center><h2><?php
                                             echo "unable to locate user " . $_GET["user"];
                                             exit(); ?> </h2></center>
-                                        <?php }?>s LastFM!</h1>
+                                        <?php }?>s LastFM!
+        </h1>
         <nav class="Navigation">
             <div class="container space-around">
                 <div><a href="recent.php?user=<?=$user?>">Recently Played</a></div>
@@ -64,17 +65,17 @@
                 $albumInfo = $lastfm->getInfo(str_replace(' ','+', $artist), str_replace(' ', '+', $album));
                 foreach($albumInfo->album as $q=>$w):?>
                     <p>
-                        <a href="albumPage.php?album=<?= $v->album; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>">
+                        <a href="albumPage.php?album=<?= $v->album; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>&user=<?=$user?>">
                             <img src="<?= $v->image[2]; ?>" alt="<?= $t->image[2]; ?>">
                             <?php endforeach; ?>
                         </a>
                         <br> 
-                        <a href="songPage.php?track=<?= $v->name; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>">
+                        <a href="songPage.php?track=<?= $v->name; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>&user=<?=$user?>">
                             <?= $v->name; ?> 
                             <?php endforeach; ?>
                         </a>
                         <br>
-                        <a href="artistPage.php?artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>">
+                        <a href="artistPage.php?artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>&user=<?=$user?>">
                             by <?= $v->artist; ?>
                             <?php endforeach; ?>
                         </a>
@@ -82,11 +83,11 @@
                 <?php endforeach; ?>
             <?php  } else { ?> 
                     <center><?php foreach($userInfo->user as $k=>$v): 
-                                            if(empty($v->realname)) {
-                                                echo $v->name;
-                                            } else {
-                                                echo $v->realname;
-                                            } endforeach;?> is not listening to anything right now</center>
+                                        if(empty($v->realname)) {
+                                            echo $v->name;
+                                        } else {
+                                            echo $v->realname;
+                                        } endforeach;?> is not listening to anything right now</center>
                 <?php }  ?>
         <?php $i++;
             if($i == 1) break;
@@ -101,7 +102,7 @@
                     <h3>Top Albums</h3>
                     <?php foreach($weeklyAlbums->weeklyalbumchart as $k=>$v): 
                             foreach($v->album as $q=>$w): ?>
-                        <br> <a href="albumPage.php?album=<?= $w->name; ?>&artist=<?= $w->artist?>">
+                        <br> <a href="albumPage.php?album=<?= $w->name; ?>&artist=<?= $w->artist?>&user=<?=$user?>">
                                 <?= $w->name ?>
                             </a>
                     <?php endforeach;
@@ -112,7 +113,7 @@
                     <h3>Top Songs</h3>
                     <?php foreach($weeklyTracks->weeklytrackchart as $k=>$v): 
                             foreach($v->track as $q=>$w): ?>
-                        <br><a href="songPage.php?track=<?= $w->name; ?>&artist=<?= $w->artist; ?>">
+                        <br><a href="songPage.php?track=<?= $w->name; ?>&artist=<?= $w->artist; ?>&user=<?=$user?>">
                                 <?= $w->name ?>
                             </a>
                     <?php endforeach;
@@ -123,7 +124,7 @@
                     <h3>Top Artists</h3>
                     <?php foreach($weeklyArtists->weeklyartistchart as $k=>$v): 
                             foreach($v->artist as $q=>$w): ?>
-                        <br> <a href="artistPage.php?artist=<?= $w->name; ?>"> 
+                        <br> <a href="artistPage.php?artist=<?= $w->name; ?>&user=<?=$user?>"> 
                                 <?= $w->name ?> 
                             </a>
                     <?php endforeach;

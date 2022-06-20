@@ -21,17 +21,17 @@
         <?php foreach($tracks->track as $k=>$v): ?>
             <o>
                 <li>
-                    <a href="albumPage.php?album=<?= $v->album; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>">
+                    <a href="albumPage.php?album=<?= $v->album; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>&user=<?=$user?>">
                         <img src="<?= $v->image[2]; ?>" alt="<?= $t->image[2]; ?>">
                         <?php endforeach; ?>
                     </a>
                     <br><br>
-                    <a href="songPage.php?track=<?= $v->name; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>">
+                    <a href="songPage.php?track=<?= $v->name; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>&user=<?=$user?>">
                         <?= $v->name; ?> 
                         <?php endforeach; ?>
                     </a>
                     <br><br>
-                    <a href="artistPage.php?artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>">
+                    <a href="artistPage.php?artist=<?php foreach($v->artist as $q=>$t):echo $v->artist; ?>&user=<?=$user?>">
                         by <?= $v->artist; ?>
                         <?php endforeach; ?>
                     </a>

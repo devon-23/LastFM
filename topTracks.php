@@ -21,7 +21,7 @@
     <?php foreach($topTracks->track as $k=>$v): ?>
         <o>
             <li>
-                <a href="albumPage.php?album=<?= $v->album; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $t->name; ?>">
+                <a href="albumPage.php?album=<?= $v->album; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $t->name; ?>&user=<?=$user?>">
                     <?php
                             $albumInfo = $lastfm->getInfo(str_replace(' ','+', $t->name), str_replace(' ', '+', $v->album));
                         foreach($albumInfo->album as $s=>$d): ?>
@@ -31,12 +31,12 @@
                     <?php endforeach; ?>
                 </a>
                 <br><br>
-                <a href="songPage.php?track=<?= $v->name; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $t->name; ?>">
+                <a href="songPage.php?track=<?= $v->name; ?>&artist=<?php foreach($v->artist as $q=>$t):echo $t->name; ?>&user=<?=$user?>">
                     <?= $v->name; ?> 
                     <?php endforeach; ?>
                 </a>
                 <br><br>
-                <a href="artistPage.php?artist=<?php foreach($v->artist as $q=>$t):echo $t->name; ?>">
+                <a href="artistPage.php?artist=<?php foreach($v->artist as $q=>$t):echo $t->name; ?>&user=<?=$user?>">
                     by <?= $t->name; ?>
                     <?php endforeach; ?>
                 </a>

@@ -28,7 +28,7 @@
         $i = 0;
         if ($_GET["name"] > 1) {
             foreach($topAlbums->album as $k=>$v): ?>
-                <a href="albumPage.php?album=<?= $v->name; ?>&artist=<?php foreach($v->artist as $q=>$w):echo $w->name; endforeach; ?>"> 
+                <a href="albumPage.php?album=<?= $v->name; ?>&artist=<?php foreach($v->artist as $q=>$w):echo $w->name; endforeach; ?>&user=<?=$user?>"> 
                     <img src="<?php echo $v->image[2]; ?>" alt="" style="margin-left: 3%;">
                 </a>
                 <?php $i++;
