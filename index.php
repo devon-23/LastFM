@@ -31,6 +31,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="stylesheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="refresh" content="100">
         <title>Devon Barclay | LastFM</title>
     </head>
     
@@ -121,7 +122,7 @@
                     ?>
                 </div>
                 <div>
-                    <h3>Top Artists</h3>
+                    <h3><a href="charts.php?user="<?= $_GET["user"] ?>>Top Artists</a></h3>
                     <?php foreach($weeklyArtists->weeklyartistchart as $k=>$v): 
                             foreach($v->artist as $q=>$w): ?>
                         <br> <a href="artistPage.php?artist=<?= $w->name; ?>&user=<?=$user?>"> 
